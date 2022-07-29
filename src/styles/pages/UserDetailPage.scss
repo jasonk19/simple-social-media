@@ -1,0 +1,88 @@
+.user-detail-page {
+  .user-detail-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    .button-container {
+      display: flex;
+      gap: 10px;
+      button {
+        padding: 5px 20px;
+        background: rgb(148, 230, 230);
+        border-radius: 5px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        transition: 200ms;
+        font-size: 16px;
+
+        &:hover {
+          background: rgb(75, 190, 190);
+        }
+      }
+    }
+    .user-detail {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      gap: 10px;
+      border: 1px solid blue;
+      border-radius: 10px;
+      padding: 1em;
+      margin-top: 1em;
+
+      .key {
+        font-weight: 500;
+      }
+
+      .address {
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      .address-email-company {
+        gap: 30px;
+        display: flex;
+        justify-content: space-between;
+        .keys,
+        .value {
+          text-align: left;
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+      }
+    }
+
+    .album-container {
+      display: grid;
+      grid-template-columns: auto auto auto auto;
+      align-items: center;
+      gap: 1.5em;
+      padding: 2em 0;
+      .album {
+        border: 1px solid blue;
+        padding: 12px;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        transition: 300ms;
+        cursor: pointer;
+        user-select: none;
+
+        p {
+          font-weight: 500;
+        }
+
+        &:hover {
+          transform: translateY(-5px);
+        }
+      }
+    }
+  }
+}

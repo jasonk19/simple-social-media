@@ -10,6 +10,12 @@ const PostDetailPage = React.lazy(() =>
   }))
 );
 
+const UserDetailPage = React.lazy(() =>
+  import("./pages/UserDetailPage").then((module) => ({
+    default: module.UserDetailPage,
+  }))
+);
+
 const PageNotFound = React.lazy(() =>
   import("./pages/PageNotFound").then((module) => ({
     default: module.PageNotFound,
@@ -29,9 +35,14 @@ export const Routing = [
     component: PostsPage,
   },
   {
-    title: "Post's Detail",
+    title: "Post Detail",
     path: "/:id",
     component: PostDetailPage,
+  },
+  {
+    title: "User Detail",
+    path: "/user/:id",
+    component: UserDetailPage,
   },
   PageNotFoundRouting,
 ];
