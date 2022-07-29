@@ -32,7 +32,7 @@ export const PostDetailPage = () => {
       {!postDetail.loading && postDetail.detail ? (
         <Layout header={postDetail.detail.title} locations={locations}>
           <div className="post-detail">
-            <Link to={`user/${postDetail.detail.userId}`} className="link">
+            <Link to={`/user/${postDetail.detail.userId}`} className="link">
               <p className="post-detail-author">By: {postDetail.detail.name}</p>
             </Link>
             <div className="post-detail-body">
