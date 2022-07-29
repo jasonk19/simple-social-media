@@ -1,0 +1,25 @@
+.navbar {
+  display: flex;
+  height: 3em;
+  align-items: center;
+  padding-left: 2em;
+  gap: 3em;
+
+  .breadcrumbs {
+    display: flex;
+    gap: 1em;
+
+    .link {
+      text-decoration: none;
+      color: #000000;
+      cursor: pointer;
+
+      font-weight: 500;
+      font-size: 16px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
