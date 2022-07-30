@@ -22,6 +22,12 @@ const AlbumPage = React.lazy(() =>
   }))
 );
 
+const PhotoDetailPage = React.lazy(() =>
+  import("./pages/PhotoDetail").then((module) => ({
+    default: module.PhotoDetail,
+  }))
+);
+
 const PageNotFound = React.lazy(() =>
   import("./pages/PageNotFound").then((module) => ({
     default: module.PageNotFound,
@@ -54,6 +60,11 @@ export const Routing = [
     title: "Album",
     path: "/user/:id/album/:albumId",
     component: AlbumPage,
+  },
+  {
+    title: "Photo",
+    path: "/user/:id/album/:albumId/photo/:photoId",
+    component: PhotoDetailPage,
   },
   PageNotFoundRouting,
 ];

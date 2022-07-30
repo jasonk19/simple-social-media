@@ -62,7 +62,7 @@ export const AlbumPage = () => {
               const photoThumbnailUrl = photo.thumbnailUrl;
               const photoTitle = photo.title;
               return (
-                <Link to={`photos/${photoId}`} className="photo-card">
+                <Link to={`photo/${photoId}`} className="photo-card">
                   <div key={photoId}>
                     <img src={photoThumbnailUrl} alt={photoTitle} />
                   </div>
