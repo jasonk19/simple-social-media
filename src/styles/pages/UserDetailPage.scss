@@ -29,8 +29,8 @@
       flex-direction: column;
       text-align: center;
       gap: 10px;
-      border: 1px solid blue;
-      border-radius: 10px;
+      border-top: 1px solid #c4c4c4;
+      border-bottom: 1px solid #c4c4c4;
       padding: 1em;
       margin-top: 1em;
 
@@ -64,7 +64,7 @@
       gap: 1.5em;
       padding: 2em 0;
       .album {
-        border: 1px solid blue;
+        border: 1px solid #000000;
         padding: 12px;
         border-radius: 10px;
         display: flex;
@@ -74,6 +74,8 @@
         transition: 300ms;
         cursor: pointer;
         user-select: none;
+        text-decoration: none;
+        color: #000000;
 
         p {
           font-weight: 500;

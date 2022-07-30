@@ -10,6 +10,22 @@
     .link {
       text-decoration: none;
       color: blue;
+      transition: 200ms;
+      position: relative;
+      &::after {
+        content: "";
+        bottom: -2px;
+        left: 0;
+        width: 0;
+        height: 3px;
+        position: absolute;
+        background: blue;
+        transition: 200ms;
+      }
+
+      &:hover::after {
+        width: 100%;
+      }
     }
 
     .post-detail-author {
@@ -18,9 +34,9 @@
     }
 
     .post-detail-body {
-      border: 1px solid blue;
-      padding: 10px;
-      border-radius: 10px;
+      border-top: 1px solid #c4c4c4;
+      border-bottom: 1px solid #c4c4c4;
+      padding: 13px 10px;
     }
 
     .comments-container {
