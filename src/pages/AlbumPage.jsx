@@ -5,6 +5,7 @@ import { fetchUsers } from "../features/user/userSlice";
 import Layout from "../components/layout/Layout";
 import "../styles/pages/AlbumPage.scss";
 import Pagination from "../components/common/Pagination";
+import Loading from "./Loading";
 
 export const AlbumPage = () => {
   const { id, albumId } = useParams();
@@ -13,9 +14,9 @@ export const AlbumPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const photosPerPage = 12;
 
-  const indexOfLastPost = currentPage * photosPerPage;
-  const indexOfFirstPost = indexOfLastPost - photosPerPage;
-  const currentPhotos = photos.slice(indexOfFirstPost, indexOfLastPost);
+  const indexOfLastPhoto = currentPage * photosPerPage;
+  const indexOfFirstPhoto = indexOfLastPhoto - photosPerPage;
+  const currentPhotos = photos.slice(indexOfFirstPhoto, indexOfLastPhoto);
 
   const paginate = (number) => {
     setCurrentPage(number);
@@ -46,7 +47,7 @@ export const AlbumPage = () => {
 
   return (
     <div className="album-page">
-      {user.loading && <div>Loading...</div>}
+      {user.loading && <Loading />}
       {!user.loading && user.error ? <div>Error: {user.error}</div> : null}
       {!user.loading && user.users ? (
         <Layout

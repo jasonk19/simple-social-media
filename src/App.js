@@ -1,10 +1,11 @@
 import { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { Routing } from "./routing";
+import Loading from "./pages/Loading";
 
 function App() {
   return (
-    <Suspense fallback={<h1>Loading...</h1>}>
+    <Suspense fallback={<Loading />}>
       <Router>
         <Routes>
           {Routing.map((route) => {

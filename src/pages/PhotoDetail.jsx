@@ -5,6 +5,7 @@ import { fetchUsers } from "../features/user/userSlice";
 import Layout from "../components/layout/Layout";
 import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 import "../styles/pages/PhotoDetail.scss";
+import Loading from "./Loading";
 
 export const PhotoDetail = () => {
   const { id, albumId, photoId } = useParams();
@@ -42,7 +43,7 @@ export const PhotoDetail = () => {
     .photos.find((photo) => photo.id === Number(photoId)).title;
   return (
     <div className="photo-detail-page">
-      {user.loading && <div>Loading...</div>}
+      {user.loading && <Loading />}
       {!user.loading && user.error ? <div>Error: {user.error}</div> : null}
       {!user.loading && user.users ? (
         <Layout
