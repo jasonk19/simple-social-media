@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Layout from "../components/layout/Layout";
 import { useDispatch, useSelector } from "react-redux/es/exports";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { fetchUsers } from "../features/user/userSlice";
 import "../styles/pages/UserDetailPage.scss";
 
@@ -32,7 +32,7 @@ export const UserDetailPage = () => {
 
   const locations = [
     {
-      link: `user/${id}`,
+      link: "",
       name: isDetail ? "User Detail" : "User Albums",
     },
   ];
@@ -54,13 +54,13 @@ export const UserDetailPage = () => {
                 <p className="address">Address</p>
                 <div className="address-email-company">
                   <div className="keys">
-                    <p className="key">City:</p>
-                    <p className="key">Street:</p>
-                    <p className="key">Suite:</p>
-                    <p className="key">Zipcode:</p>
+                    <p className="key">City</p>
+                    <p className="key">Street</p>
+                    <p className="key">Suite</p>
+                    <p className="key">Zipcode</p>
                     <br />
-                    <p className="key">Email:</p>
-                    <p className="key">Company:</p>
+                    <p className="key">Email</p>
+                    <p className="key">Company</p>
                   </div>
                   <div className="value">
                     {user.users.address && (
@@ -84,10 +84,10 @@ export const UserDetailPage = () => {
                   user.users.albums.map((album) => {
                     const albumThumbnail = album.photos[0].thumbnailUrl;
                     return (
-                      <div className="album">
+                      <Link to={`album/${album.albumId}`} className="album">
                         <img src={albumThumbnail} alt="Album Thumbnail"></img>
                         <p>{album.title}</p>
-                      </div>
+                      </Link>
                     );
                   })}
               </div>

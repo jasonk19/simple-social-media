@@ -32,7 +32,7 @@ export const fetchUsers = createAsyncThunk(
       company: userResponse.company.name,
       albums: albumResponse.map((album) => {
         return {
-          albumID: album.id,
+          albumId: album.id,
           title: album.title,
           photos: photosResponse.filter((photo) => photo.albumId === album.id),
         };

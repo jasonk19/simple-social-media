@@ -18,7 +18,7 @@ export const PostDetailPage = () => {
 
   const locations = [
     {
-      link: `/${id}`,
+      link: "",
       name: postDetail.detail.title,
     },
   ];

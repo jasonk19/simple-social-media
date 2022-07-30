@@ -16,6 +16,12 @@ const UserDetailPage = React.lazy(() =>
   }))
 );
 
+const AlbumPage = React.lazy(() =>
+  import("./pages/AlbumPage").then((module) => ({
+    default: module.AlbumPage,
+  }))
+);
+
 const PageNotFound = React.lazy(() =>
   import("./pages/PageNotFound").then((module) => ({
     default: module.PageNotFound,
@@ -43,6 +49,11 @@ export const Routing = [
     title: "User Detail",
     path: "/user/:id",
     component: UserDetailPage,
+  },
+  {
+    title: "Album",
+    path: "/user/:id/album/:albumId",
+    component: AlbumPage,
   },
   PageNotFoundRouting,
 ];
