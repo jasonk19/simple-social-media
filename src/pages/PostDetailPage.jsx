@@ -5,6 +5,7 @@ import { useSelector, useDispatch } from "react-redux/es/exports";
 import { fetchPostDetail } from "../features/postDetail/postDetailSlice";
 
 import "../styles/pages/PostDetailPage.scss";
+import Loading from "./Loading";
 
 export const PostDetailPage = () => {
   const { id } = useParams();
@@ -25,7 +26,7 @@ export const PostDetailPage = () => {
 
   return (
     <div className="post-detail-page">
-      {postDetail.loading && <div>Loading</div>}
+      {postDetail.loading && <Loading />}
       {!postDetail.loading && postDetail.error ? (
         <div>Error: {postDetail.error}</div>
       ) : null}

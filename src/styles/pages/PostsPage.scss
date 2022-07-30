@@ -2,8 +2,10 @@
   .posts-container {
     padding: 2em;
     display: grid;
-    grid-template-columns: auto auto auto auto;
+    grid-template-columns: auto auto;
+    margin: 0 auto;
     gap: 1.5em;
+    width: 80%;
     .post {
       display: flex;
       flex-direction: column;
@@ -22,7 +24,7 @@
 
       .user {
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
 
         .name {
           font-weight: 500;

@@ -4,6 +4,7 @@ import "../styles/pages/PostsPage.scss";
 import Layout from "../components/layout/Layout";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchPosts } from "../features/post/postSlice";
+import Loading from "./Loading";
 
 export const PostsPage = () => {
   const post = useSelector((state) => state.post);
@@ -11,17 +12,17 @@ export const PostsPage = () => {
 
   useEffect(() => {
     dispatch(fetchPosts());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="posts-page">
       <Layout header="Posts">
-        {post.loading && <div>Loading</div>}
+        {post.loading && <Loading />}
         {!post.loading && post.error ? <div>Error: {post.error}</div> : null}
         {!post.loading && post.posts.length ? (
           <div className="posts-container">
             {post.posts.map((post) => (
-              <Link to={`/${post.id}`} className="post">
+              <Link to={`/${post.id}`} className="post" key={post.id}>
                 <div className="user">
                   <p className="name">{post.name}</p>
                   <p className="company">From: {post.company}</p>

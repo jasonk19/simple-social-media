@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux/es/exports";
 import { useParams, Link } from "react-router-dom";
 import { fetchUsers } from "../features/user/userSlice";
 import "../styles/pages/UserDetailPage.scss";
+import Loading from "./Loading";
 
 export const UserDetailPage = () => {
   const { id } = useParams();
@@ -17,8 +18,6 @@ export const UserDetailPage = () => {
   useEffect(() => {
     dispatch(fetchUsers(id));
   }, []);
-
-  console.log(user.users);
 
   const handleOpenDetail = () => {
     setIsAlbum(false);
@@ -39,7 +38,7 @@ export const UserDetailPage = () => {
 
   return (
     <div className="user-detail-page">
-      {user.loading && <div>Loading...</div>}
+      {user.loading && <Loading />}
       {!user.loading && user.error ? <div>Error: {user.error}</div> : null}
       {!user.loading && user.users ? (
         <Layout header={user.users.name} locations={locations}>

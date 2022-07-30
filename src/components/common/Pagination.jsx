@@ -9,12 +9,23 @@ const Pagination = ({
 }) => {
   const pageNumbers = [];
 
-  for (let i = 1; i <= Math.ceil(totalContent / contentPerPage); i++) {
+  const totalPage = Math.ceil(totalContent / contentPerPage);
+
+  for (let i = 1; i <= totalPage; i++) {
     pageNumbers.push(i);
   }
   return (
     <nav className="pagination">
       <ul className="page-numbers">
+        <li>
+          <button
+            onClick={() => paginate(currentPage - 1)}
+            style={{ background: "cyan" }}
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
+        </li>
         {pageNumbers.map((number) => (
           <li key={number}>
             <button
@@ -25,6 +36,15 @@ const Pagination = ({
             </button>
           </li>
         ))}
+        <li>
+          <button
+            onClick={() => paginate(currentPage + 1)}
+            style={{ background: "cyan" }}
+            disabled={currentPage === totalPage}
+          >
+            Next
+          </button>
+        </li>
       </ul>
     </nav>
   );
